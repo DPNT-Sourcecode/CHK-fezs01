@@ -1,6 +1,3 @@
-import collections
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -53,13 +50,14 @@ def apply_free_item_offer(items_cart, free_item_offer):
                 or discount_item_name not in items_cart.keys()
             ):
                 continue
-            item_num_free = divmod(items_cart[name], discount.keys()[0])[0]
+            item_num_free = divmod(items_cart[name], count)[0]
 
             while item_num_free > 0:
                 if items_cart[discount_item_name] == 0:
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
 
