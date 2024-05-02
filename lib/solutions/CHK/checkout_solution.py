@@ -56,7 +56,6 @@ def apply_free_item_offer(items_cart):
 
 def free_other_item(items_cart, name, count, discount_item_name):
     item_num_free = divmod(items_cart[name], count)[0]
-
     if name == discount_item_name:
         if items_cart[discount_item_name] == count:
             item_num_free = 0
@@ -76,4 +75,5 @@ def free_self_item(items_cart, name, count, discount_item_name):
     items_cart[discount_item_name] = (
         item_bundle_number * count + single_item_remainder_number
     )
+
 
