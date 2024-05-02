@@ -19,8 +19,3 @@ class TestCheckout:
 
     def test_checkout_invaild_input_lower_case(self):
         assert checkout_solution.checkout("AAAAbBCD") == -1
-
-
-
-
-
