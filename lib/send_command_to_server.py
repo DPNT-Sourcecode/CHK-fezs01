@@ -48,8 +48,7 @@ from runner.user_input_action import get_user_input
     |  7.  | Observe the output, check for failed requests.                        |
     |  8.  | If passed, go to step 1.                                              |
     +------+-----------------------------------------------------------------------+
-    
-    
+ 
     You are encouraged to change this project as you please:
          * You can use your preferred libraries.
          * You can use your own test framework.
@@ -74,4 +73,5 @@ runner = (
 ChallengeSession.for_runner(runner).with_config(
     Utils.get_config()
 ).with_action_provider(lambda: get_user_input(sys.argv[1:])).start()
+
 
