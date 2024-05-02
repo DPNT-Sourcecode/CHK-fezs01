@@ -48,17 +48,24 @@ def apply_free_item_offer(items_cart):
                 or discount_item_name not in items_cart.keys()
             ):
                 continue
-            item_num_free = divmod(items_cart[name], count)[0]
+            item_bundle_number = divmod(items_cart[name], count + 1)[0]
+            single_item_remainder_number = divmod(items_cart[name], count + 1)[1]
+            items_cart[discount_item_name] = (
+                item_bundle_number * count + single_item_remainder_number
+            )
 
-            if name == discount_item_name:
-                if items_cart[discount_item_name] == count:
-                    item_num_free = 0
-                if item_num_free > 1:
-                    item_num_free -= 1
+            # item_num_free = divmod(items_cart[name], count)[0]
 
-            while item_num_free > 0:
-                if items_cart[discount_item_name] == 0:
-                    break
-                items_cart[discount_item_name] -= 1
-                item_num_free -= 1
+            # if name == discount_item_name:
+            #     if items_cart[discount_item_name] == count:
+            #         item_num_free = 0
+            #     if item_num_free > 1:
+            #         item_num_free[0]
+
+            # while item_num_free > 0:
+            #     if items_cart[discount_item_name] == 0:
+            #         break
+            #     items_cart[discount_item_name] -= 1
+            #     item_num_free -= 1
+
 
