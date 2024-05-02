@@ -32,16 +32,17 @@ def apply_multi_buy_offer(multi_buy_offer, price_table, item_name, num_item):
     sorted_offers = list(reversed(sorted(multi_buy_offer[item_name].keys())))
     price_for_item = 0
     item_left = num_item
-    for count in sorted_offers:
 
+    for count in sorted_offers:
         apply_offer_count = divmod(item_left, count)
-        items_price_with_offer = apply_offer_count[0] * multi_buy_offer[item_name][1]
+        items_price_with_offer = (
+            apply_offer_count[0] * multi_buy_offer[item_name][count]
+        )
         price_for_item += items_price_with_offer
         item_left = apply_offer_count[1]
 
-    items_price_with_out_offer = price_table[item_name] * apply_offer_count[1]
-
-    return items_total_price
+    item_with_no_discount = price_table[item_name] * item_left
+    return price_for_item + item_with_no_discount
 
 
 def apply_free_item_offer(items_cart, free_item_offer):
@@ -59,6 +60,7 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
 
