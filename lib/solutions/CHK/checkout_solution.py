@@ -52,9 +52,13 @@ def apply_free_item_offer(items_cart):
 
             if name == discount_item_name:
                 num_in_cart = items_cart[discount_item_name]
-                item_num_free = 0
                 if num_in_cart == count:
+                    item_num_free = 0
                     break
+                if item_num_free == 1:
+                    break
+
+                item_num_free = 0
 
                 while num_in_cart >= count:
                     num_in_cart = num_in_cart - count - 1
@@ -65,6 +69,7 @@ def apply_free_item_offer(items_cart):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
 
