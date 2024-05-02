@@ -1,4 +1,4 @@
-from ..price_offer_sheet import price_table, multi_buy_offer, free_item_offer
+from ..price_offer_sheet import price_table, multi_buy_offer, free_item_offer,any_certain_num_offer
 
 
 # noinspection PyUnusedLocal
@@ -75,3 +75,8 @@ def free_self_item(items_cart, name, count, discount_item_name):
     items_cart[discount_item_name] = (
         item_bundle_number * count + single_item_remainder_number
     )
+    
+def apply_any_of_certain_num_offer(items_cart, name, count, discount_item_name):
+    price_for_with_offer = 0
+    for 
+    return
