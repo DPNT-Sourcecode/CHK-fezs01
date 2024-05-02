@@ -1,12 +1,10 @@
+from ..price_offer_sheet import price_table, multi_buy_price, free_item_offer
+
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     result = 0
-    price_table = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
-    multi_buy_price = {"A": {3: 130, 5: 200}, "B": {2: 45}}
-    # another solution -  buy two get one free itself, we can also treat itself as multi buy but this need another function to handle price changes
-
-    free_item_offer = {"E": {2: "B"}, "F": {2: "F"}}
     items_cart = {}
 
     for sku in skus:
@@ -18,16 +16,14 @@ def checkout(skus):
 
     for name, quantity in items_cart.items():
         if name in multi_buy_price.keys():
-            result += apply_multi_buy_offer(
-                multi_buy_price, price_table, name, quantity
-            )
+            result += apply_multi_buy_offer(name, quantity)
         else:
             result += price_table[name] * quantity
 
     return result
 
 
-def apply_multi_buy_offer(multi_buy_offer, price_table, item_name, num_item):
+def apply_multi_buy_offer(item_name, num_item):
     sorted_offers = list(reversed(sorted(multi_buy_offer[item_name].keys())))
     price_for_item = 0
     item_left = num_item
@@ -65,3 +61,4 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
