@@ -99,5 +99,3 @@ def apply_any_of_certain_num_offer(items_cart):
         price_with_out_0ffer = num_offer_and_left_items[0] * offer.keys()[0]
 
     return price
-
-
