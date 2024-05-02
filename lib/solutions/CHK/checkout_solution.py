@@ -14,7 +14,7 @@ def checkout(skus):
     for sku in skus:
         if sku not in price_table.keys():
             return -1
-        items_cart[sku] = items_cart[sku] + 1
+        items_cart[sku] = items_cart.get(sku, 0) + 1
 
     for name, quantity in items_cart.items():
         if name in offer_price.keys():
@@ -34,3 +34,4 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
+
