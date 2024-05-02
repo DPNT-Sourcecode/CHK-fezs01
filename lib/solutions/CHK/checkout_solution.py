@@ -25,13 +25,19 @@ def checkout(skus):
     return result
 
 
-def apply_multi_buy_offer(offer_price, price_table, name, quantity):
+def apply_multi_buy_offer(multi_buy_offer, price_table, name, quantity):
+    offer = dict(sorted(multi_buy_offer[name].items()))
+    print(offer)
+    for count, price in offer:
 
-    apply_offer_count = divmod(quantity, offer_price[name][0])
+        print(count)
+        print(price)
 
-    items_price_with_offer = apply_offer_count[0] * offer_price[name][1]
-    items_price_with_out_offer = price_table[name] * apply_offer_count[1]
-    items_total_price = items_price_with_offer + items_price_with_out_offer
+        apply_offer_count = divmod(quantity, multi_buy_offer[name][0])
+
+        items_price_with_offer = apply_offer_count[0] * multi_buy_offer[name][1]
+        items_price_with_out_offer = price_table[name] * apply_offer_count[1]
+        items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
 
@@ -39,10 +45,6 @@ def apply_multi_buy_offer(offer_price, price_table, name, quantity):
 def apply_free_item_offer(items_cart, free_item_offer):
     for name, discount in free_item_offer.items():
         for count, discount_item_name in discount.items():
-            print("NAME", name)
-            print(count)
-            print(discount_item_name)
-
             if (
                 name not in items_cart.keys()
                 or discount_item_name not in items_cart.keys()
@@ -55,5 +57,6 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
