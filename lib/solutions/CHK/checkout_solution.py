@@ -47,23 +47,33 @@ def apply_free_item_offer(items_cart):
                 or discount_item_name not in items_cart.keys()
             ):
                 continue
-            item_bundle_number = divmod(items_cart[name], count + 1)[0]
-            single_item_remainder_number = divmod(items_cart[name], count + 1)[1]
-            print(name, item_bundle_number * count + single_item_remainder_number)
-            items_cart[discount_item_name] = (
-                item_bundle_number * count + single_item_remainder_number
-            )
 
-            # item_num_free = divmod(items_cart[name], count)[0]
+            if name == discount_item_name:
+                free_self_item(items_cart, name, count, discount_item_name)
+            else:
+                free_other_item(items_cart, name, count, discount_item_name)
 
-            # if name == discount_item_name:
-            #     if items_cart[discount_item_name] == count:
-            #         item_num_free = 0
-            #     if item_num_free > 1:
-            #         item_num_free[0]
 
-            # while item_num_free > 0:
-            #     if items_cart[discount_item_name] == 0:
-            #         break
-            #     items_cart[discount_item_name] -= 1
-            #     item_num_free -= 1
+def free_other_item(items_cart, name, count, discount_item_name):
+    item_num_free = divmod(items_cart[name], count)[0]
+
+    if name == discount_item_name:
+        if items_cart[discount_item_name] == count:
+            item_num_free = 0
+        if item_num_free > 1:
+            item_num_free[0]
+
+    while item_num_free > 0:
+        if items_cart[discount_item_name] == 0:
+            break
+        items_cart[discount_item_name] -= 1
+        item_num_free -= 1
+
+
+def free_self_item(items_cart, name, count, discount_item_name):
+    item_bundle_number = divmod(items_cart[name], count + 1)[0]
+    single_item_remainder_number = divmod(items_cart[name], count + 1)[1]
+    items_cart[discount_item_name] = (
+        item_bundle_number * count + single_item_remainder_number
+    )
+
