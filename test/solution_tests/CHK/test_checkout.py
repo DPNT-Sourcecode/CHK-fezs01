@@ -9,8 +9,8 @@ class TestCheckout:
         assert checkout_solution.checkout("ABC") == 100
 
     def test_checkout_Item_A_with_offer(self):
-        pass
         assert checkout_solution.checkout("AAA") == 130
+
 
 
 
