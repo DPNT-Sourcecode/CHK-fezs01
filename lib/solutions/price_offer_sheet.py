@@ -45,4 +45,5 @@ free_item_offer = {
     "U": {3: "U"},
 }
 
-any_certain_num_offer = {3: ["S", "T", "X", "Y", "Z"]}
+any_certain_num_offer = {3: {45: ["S", "T", "X", "Y", "Z"]}}
+

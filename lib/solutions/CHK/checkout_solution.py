@@ -84,8 +84,11 @@ def free_self_item(items_cart, name, count, discount_item_name):
 
 def apply_any_of_certain_num_offer(items_cart):
     price_for_with_offer = 0
-    for count, items in any_certain_num_offer:
-        sort_by_price = sorted(items, keys=lambda x: price_table[x], reverse=True)
+    for count, offer in any_certain_num_offer:
+
+        sort_by_price = sorted(
+            offer.values()[0], keys=lambda x: price_table[x], reverse=True
+        )
         available_item_for_offer = "".join(
             item_name * items_cart[item_name] for item_name in sort_by_price
         )
@@ -93,3 +96,4 @@ def apply_any_of_certain_num_offer(items_cart):
         num_offer_and_left_item = divmod(len(available_item_for_offer), count)
 
     return price_for_with_offer
+
