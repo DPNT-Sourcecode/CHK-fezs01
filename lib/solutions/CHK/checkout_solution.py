@@ -1,3 +1,6 @@
+import collections
+
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -26,8 +29,8 @@ def checkout(skus):
 
 
 def apply_multi_buy_offer(multi_buy_offer, price_table, name, quantity):
-    offer = dict(sorted(multi_buy_offer[name].items()))
-    print(offer)
+    sortedOffers = list(reversed(sorted(multi_buy_offer.keys())))
+    print(sortedOffers)
     for count, price in offer:
 
         print(count)
@@ -57,6 +60,7 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
 
