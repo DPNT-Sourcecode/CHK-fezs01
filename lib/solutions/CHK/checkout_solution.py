@@ -40,17 +40,18 @@ def apply_free_item_offer(items_cart, free_item_offer):
     for name, discount in free_item_offer.items():
         print("NAME", name)
         print(discount)
-        discount_item_name = discount[1]
+        discount_item_name = discount.values()[0]  # B
 
         if name not in items_cart.keys() or discount_item_name not in items_cart.keys():
             continue
-        item_num_free = divmod(items_cart[name], discount[0])[0]
+        item_num_free = divmod(items_cart[name], discount.keys()[0])[0]
 
         while item_num_free > 0:
             if items_cart[discount_item_name] == 0:
                 break
             items_cart[discount_item_name] -= 1
             item_num_free -= 1
+
 
 
 
