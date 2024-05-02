@@ -3,7 +3,7 @@
 def checkout(skus):
     result = 0
     price_table = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
-    offer_price = {"A": (3, 130), "B": (2, 45), "E": (2, "B")}
+    offer_price = {"A": [(3, 130), (5, 200)], "B": (2, 45), "E": (2, "B")}
     items_cart = {}
 
     for sku in skus:
@@ -29,3 +29,4 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
+
