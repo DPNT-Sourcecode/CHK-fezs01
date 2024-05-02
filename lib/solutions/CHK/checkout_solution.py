@@ -96,4 +96,3 @@ def apply_any_of_certain_num_offer(items_cart):
         num_offer_and_left_item = divmod(len(available_item_for_offer), count)
 
     return price_for_with_offer
-
