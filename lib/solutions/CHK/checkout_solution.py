@@ -13,6 +13,7 @@ def checkout(skus):
         items_cart[sku] = items_cart.get(sku, 0) + 1
 
     apply_free_item_offer(items_cart, free_item_offer)
+    print(items_cart)
 
     for name, quantity in items_cart.items():
         if name in multi_buy_price.keys():
@@ -51,15 +52,19 @@ def apply_free_item_offer(items_cart, free_item_offer):
             ):
                 continue
             item_num_free = divmod(items_cart[name], count)[0]
+            print(item_num_free)
+            print(item_num_free > count)
+            print(count)
 
             if name == discount_item_name and item_num_free > count:
                 item_num_free -= 1
+            else:
+                while item_num_free > 0:
+                    if items_cart[discount_item_name] == 0:
+                        break
+                    items_cart[discount_item_name] -= 1
+                    item_num_free -= 1
 
-            while item_num_free > 0:
-                if items_cart[discount_item_name] == 0:
-                    break
-                items_cart[discount_item_name] -= 1
-                item_num_free -= 1
 
 
 
