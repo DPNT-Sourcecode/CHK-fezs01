@@ -2,9 +2,9 @@
 # skus = unicode string
 def checkout(skus):
     result = 0
-    price_table = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+    price_table = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
     multi_buy_price = {"A": {3: 130, 5: 200}, "B": {2: 45}}
-    free_item_offer = {"E": {2: "B"}}
+    free_item_offer = {"E": {2: "B"}, "F": {2: "F"}}
     items_cart = {}
 
     for sku in skus:
@@ -57,3 +57,4 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
