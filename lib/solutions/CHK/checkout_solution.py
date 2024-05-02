@@ -38,6 +38,8 @@ def apply_multi_buy_offer(offer_price, price_table, name, quantity):
 
 def apply_free_item_offer(items_cart, free_item_offer):
     for name, discount in free_item_offer.items():
+        print("NAME", name)
+        print(discount)
         discount_item_name = discount[1]
 
         if name not in items_cart.keys() or discount_item_name not in items_cart.keys():
@@ -49,5 +51,6 @@ def apply_free_item_offer(items_cart, free_item_offer):
                 break
             items_cart[discount_item_name] -= 1
             item_num_free -= 1
+
 
 
