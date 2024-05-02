@@ -18,11 +18,9 @@ def checkout(skus):
 
     for name, quantity in items_cart.items():
         if name in offer_price.keys():
-            apply_offer_count = divmod(quantity, offer_price[name][0])
-            items_price_with_offer = apply_offer_count[0] * offer_price[name][1]
-            items_price_with_out_offer = price_table[name] * apply_offer_count[name][1]
-            items_total_price = items_price_with_offer + items_price_with_out_offer
-            result += items_total_price
+            result += calculate_price_for_item_with_offer(
+                offer_price, price_table, name, quantity
+            )
         else:
             result += price_table[name] * quantity
 
@@ -36,3 +34,4 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
+
