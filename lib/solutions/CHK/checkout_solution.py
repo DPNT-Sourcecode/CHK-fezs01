@@ -49,7 +49,7 @@ def apply_free_item_offer(items_cart):
                 continue
             item_bundle_number = divmod(items_cart[name], count + 1)[0]
             single_item_remainder_number = divmod(items_cart[name], count + 1)[1]
-            print("Hello", item_bundle_number * count + single_item_remainder_number)
+            print(name, item_bundle_number * count + single_item_remainder_number)
             items_cart[discount_item_name] = (
                 item_bundle_number * count + single_item_remainder_number
             )
@@ -67,7 +67,3 @@ def apply_free_item_offer(items_cart):
             #         break
             #     items_cart[discount_item_name] -= 1
             #     item_num_free -= 1
-
-
-
-
