@@ -58,3 +58,7 @@ class TestCheckout:
 
     def test_8(self):
         assert checkout_solution.checkout("UUUUUUUU") == 240
+
+    def test_10(self):
+        assert checkout_solution.checkout("UUUUUUUUUU") == 320
+
