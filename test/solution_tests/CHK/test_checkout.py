@@ -58,4 +58,3 @@ class TestCheckout:
 
     def test_8(self):
         assert checkout_solution.checkout("UUUUUUUU") == 240
-
