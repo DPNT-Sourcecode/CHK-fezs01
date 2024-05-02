@@ -47,8 +47,21 @@ class TestCheckout:
     def test_checkout_buy_two_get_one_free_itself_but_no_need_free(self):
         assert checkout_solution.checkout("AAFF") == 120
 
-    def one(self):
-        assert checkout_solution.checkout("AAFF") == 120
+    def test_one(self):
+        assert checkout_solution.checkout("FFFF") == 30
 
-    def two(self):
-        assert checkout_solution.checkout("AAFF") == 120
+    def test_two(self):
+        assert checkout_solution.checkout("FFFFF") == 40
+
+    def test_three(self):
+        assert checkout_solution.checkout("FF") == 20
+
+    def test_four(self):
+        assert checkout_solution.checkout("FFF") == 20
+
+    def test_five(self):
+        assert checkout_solution.checkout("FFFFFF") == 40
+
+    def test_six(self):
+        assert checkout_solution.checkout("FFFFFFF") == 50
+
