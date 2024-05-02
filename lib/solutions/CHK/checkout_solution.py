@@ -28,18 +28,17 @@ def checkout(skus):
     return result
 
 
-def apply_multi_buy_offer(multi_buy_offer, price_table, name, quantity):
-    sortedOffers = list(reversed(sorted(multi_buy_offer.keys())))
-    print(sortedOffers)
-    for count, price in offer:
+def apply_multi_buy_offer(multi_buy_offer, price_table, item_name, num_item):
+    sorted_offers = list(reversed(sorted(multi_buy_offer[item_name].keys())))
+    price_for_item = 0
+    for count in sorted_offers:
 
         print(count)
-        print(price)
 
-        apply_offer_count = divmod(quantity, multi_buy_offer[name][0])
+        apply_offer_count = divmod(num_item, multi_buy_offer[item_name][count])
 
-        items_price_with_offer = apply_offer_count[0] * multi_buy_offer[name][1]
-        items_price_with_out_offer = price_table[name] * apply_offer_count[1]
+        items_price_with_offer = apply_offer_count[0] * multi_buy_offer[item_name][1]
+        items_price_with_out_offer = price_table[item_name] * apply_offer_count[1]
         items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
@@ -60,6 +59,7 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
 
