@@ -32,3 +32,5 @@ class TestCheckout:
     def test_checkout_buy_two_get_one_free_no_B(self):
         assert checkout_solution.checkout("AAACDEE") == 245
 
+    def test_checkout_multi_buy_with_one_offer_applied(self):
+        assert checkout_solution.checkout("AAAAACEE") == 400
