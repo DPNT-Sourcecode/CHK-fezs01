@@ -6,7 +6,6 @@ from ..price_offer_sheet import price_table, multi_buy_offer, free_item_offer
 def checkout(skus):
     result = 0
     items_cart = {}
-    print("ss")
 
     for sku in skus:
         if sku not in price_table.keys():
@@ -41,7 +40,6 @@ def apply_multi_buy_offer(item_name, num_item):
 
 
 def apply_free_item_offer(items_cart):
-    print("YOU SHOULD PRINT")
     for name, discount in free_item_offer.items():
         for count, discount_item_name in discount.items():
             if (
@@ -69,6 +67,7 @@ def apply_free_item_offer(items_cart):
             #         break
             #     items_cart[discount_item_name] -= 1
             #     item_num_free -= 1
+
 
 
 
