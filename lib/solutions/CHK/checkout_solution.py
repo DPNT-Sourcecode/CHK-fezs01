@@ -1,4 +1,9 @@
-from ..price_offer_sheet import price_table, multi_buy_offer, free_item_offer,any_certain_num_offer
+from ..price_offer_sheet import (
+    price_table,
+    multi_buy_offer,
+    free_item_offer,
+    any_certain_num_offer,
+)
 
 
 # noinspection PyUnusedLocal
@@ -75,8 +80,16 @@ def free_self_item(items_cart, name, count, discount_item_name):
     items_cart[discount_item_name] = (
         item_bundle_number * count + single_item_remainder_number
     )
-    
-def apply_any_of_certain_num_offer(items_cart, name, count, discount_item_name):
+
+
+def apply_any_of_certain_num_offer(items_cart):
     price_for_with_offer = 0
-    for 
-    return
+    for count, items in any_certain_num_offer:
+        sort_by_price = sorted(items, keys=lambda x: price_table[x], reverse=True)
+        available_item_for_offer = "".join(
+            item_name * items_cart[item_name] for item_name in sort_by_price
+        )
+
+        num_offer_and_left_item = divmod(len(available_item_for_offer), count)
+
+    return price_for_with_offer
