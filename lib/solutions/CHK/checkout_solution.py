@@ -20,6 +20,8 @@ def checkout(skus):
         item_num_free = divmod(items_cart[name], discount[0])[0]
 
         while item_num_free > 0:
+            if items_cart[discount_item_name] == 0:
+                break
             items_cart[discount_item_name] -= 1
             item_num_free -= 1
 
@@ -43,3 +45,4 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
+
