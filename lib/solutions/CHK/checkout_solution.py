@@ -34,4 +34,3 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
-
