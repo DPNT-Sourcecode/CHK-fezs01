@@ -83,7 +83,7 @@ def free_self_item(items_cart, name, count, discount_item_name):
 
 
 def apply_any_of_certain_num_offer(items_cart):
-    price_for_with_offer = 0
+    price = 0
     for count, offer in any_certain_num_offer:
 
         sort_by_price = sorted(
@@ -94,5 +94,10 @@ def apply_any_of_certain_num_offer(items_cart):
         )
 
         num_offer_and_left_item = divmod(len(available_item_for_offer), count)
+        
+        price += num_offer_and_left_item[0]*offer.keys()[0]
+        price_with_out_0ffer = num_offer_and_left_item[0]*offer.keys()[0]
+        price_for_with_offer += 
 
-    return price_for_with_offer
+    return price
+
