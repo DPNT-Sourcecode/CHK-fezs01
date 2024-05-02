@@ -36,6 +36,4 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     return items_total_price
 
 
-checkout("ABC")
-
 
