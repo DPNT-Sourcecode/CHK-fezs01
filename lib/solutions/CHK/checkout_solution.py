@@ -65,7 +65,3 @@ def apply_free_item_offer(items_cart, free_item_offer):
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
-
-
-
-

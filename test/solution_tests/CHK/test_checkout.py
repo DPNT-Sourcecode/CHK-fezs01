@@ -55,6 +55,3 @@ class TestCheckout:
 
     def test_checkout_buy_two_get_one_free_itself_with_six_item(self):
         assert checkout_solution.checkout("FFFFFF") == 40
-
-
-
