@@ -11,21 +11,22 @@ def checkout(skus):
         if sku not in price_table.keys():
             return -1
         items_cart[sku] = items_cart.get(sku, 0) + 1
-
+    print(items_cart)
     for name, discount in free_item_offer.items():
         discount_item_name = discount[1]
-        if discount_item_name not in items_cart.keys():
+
+        if name not in items_cart.keys() or discount_item_name not in items_cart.keys():
             continue
         item_num_free = divmod(items_cart[name], discount[0])[0]
-        while item_num_free > 0:
 
+        while item_num_free > 0:
             items_cart[discount_item_name] -= 1
             item_num_free -= 1
 
     for name, quantity in items_cart.items():
         if name in offer_price.keys():
             result += calculate_price_for_item_with_offer(
-                offer_price, price_table, name, quantity, items_cart
+                offer_price, price_table, name, quantity
             )
         else:
             result += price_table[name] * quantity
@@ -42,7 +43,3 @@ def calculate_price_for_item_with_offer(offer_price, price_table, name, quantity
     items_total_price = items_price_with_offer + items_price_with_out_offer
 
     return items_total_price
-
-
-
-
