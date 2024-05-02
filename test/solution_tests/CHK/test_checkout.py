@@ -47,7 +47,7 @@ class TestCheckout:
     def test_checkout_buy_two_get_one_free_itself_but_no_need_free(self):
         assert checkout_solution.checkout("AAFF") == 120
 
-    def test_one(self):
+    def test_checkout_buy_four_get_one_free(self):
         assert checkout_solution.checkout("FFFF") == 30
 
     def test_two(self):
@@ -64,4 +64,5 @@ class TestCheckout:
 
     def test_six(self):
         assert checkout_solution.checkout("FFFFFFF") == 50
+
 
