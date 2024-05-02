@@ -54,11 +54,12 @@ def apply_free_item_offer(items_cart):
                 if items_cart[discount_item_name] == count:
                     item_num_free = 0
                 if item_num_free > count - 1:
-                    item_num_free -= 1
+                    item_num_free -= count - 1
 
             while item_num_free > 0:
                 if items_cart[discount_item_name] == 0:
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
