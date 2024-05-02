@@ -21,7 +21,12 @@ def checkout(skus):
             apply_offer_count = divmod(quantity, offer_price[name][0])
             items_price_with_offer = apply_offer_count[0] * offer_price[name][1]
             items_price_with_out_offer = price_table[name] * apply_offer_count[name][1]
+            items_total_price = items_price_with_offer + items_price_with_out_offer
+            result += items_total_price
+        else:
+            result += price_table[name] * quantity
 
-    pass
+    return
+
 
 
