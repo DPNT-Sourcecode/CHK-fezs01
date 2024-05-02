@@ -26,7 +26,7 @@ price_table = {
     "Y": 10,
     "Z": 50,
 }
-multi_buy_price = {
+multi_buy_offer = {
     "A": {3: 130, 5: 200},
     "B": {2: 45},
     "H": {5: 45, 10: 80},
@@ -42,6 +42,7 @@ free_item_offer = {
     "R": {3: "Q"},
     "U": {3: "U"},
 }
+
 
 
 
