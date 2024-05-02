@@ -52,10 +52,17 @@ def apply_free_item_offer(items_cart, free_item_offer):
                 continue
             item_num_free = divmod(items_cart[name], count)[0]
 
-            while item_num_free > 0 and divmod(items_cart[name], count)[1] != 0:
+            # if item_num_free == 1 and name == discount_item_name:
+
+            while (
+                item_num_free > 0
+                and divmod(items_cart[name], count)[1]
+                > divmod(items_cart[name], count)[0]
+            ):
                 if items_cart[discount_item_name] == 0:
                     break
                 items_cart[discount_item_name] -= 1
                 item_num_free -= 1
+
 
 
