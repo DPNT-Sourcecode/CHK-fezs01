@@ -94,8 +94,17 @@ def apply_any_of_certain_num_offer(items_cart):
         )
 
         num_offer_and_left_items = divmod(len(available_item_for_offer), count)
+        if num_offer_and_left_items[0] ==0:
+            continue
+        
+        price += offer.keys()[0] * num_offer_and_left_items[0]
+        
+        left_item = available_item_for_offer[]
+        
+        
         price += num_offer_and_left_items[0] * offer.keys()[0]
         pass
         price_with_out_0ffer = num_offer_and_left_items[0] * offer.keys()[0]
 
     return price
+
