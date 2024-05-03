@@ -17,7 +17,9 @@ def checkout(skus):
         if sku not in price_table.keys():
             return -1
         items_cart[sku] = items_cart.get(sku, 0) + 1
+
     apply_free_item_offer(items_cart)
+    apply_group_offer(items_cart)
 
     for name, quantity in items_cart.items():
         if name in multi_buy_offer.keys():
@@ -85,8 +87,7 @@ def free_self_item(items_cart, name, count, discount_item_name):
 
 def apply_group_offer(items_cart):
     price = 0
-    for count, offer in group_offer:
-
+    for count, offer in group_offer.items():
         sort_by_price = sorted(
             offer.values()[0], keys=lambda x: price_table[x], reverse=True
         )
@@ -112,4 +113,5 @@ def apply_group_offer(items_cart):
             items_cart[name] = num
 
     return price
+
 
