@@ -91,10 +91,16 @@ def apply_group_offer(items_cart):
         sort_by_price = sorted(
             list(offer.values())[0], key=lambda x: price_table[x], reverse=True
         )
-        print(sort_by_price)
-        available_items_for_offer = "".join(
-            item_name * items_cart[item_name] for item_name in sort_by_price
-        )
+
+        available_items_for_offer = ""
+
+        for i in sort_by_price:
+            if i in items_cart:
+                num_items = items_cart[i]
+                available_items_for_offer.join(i * num_items)
+
+        print(available_items_for_offer)
+
         num_offers, num_left_items = divmod(len(available_items_for_offer), count)
 
         if num_offers == 0:
@@ -114,8 +120,3 @@ def apply_group_offer(items_cart):
             items_cart[name] = num
 
     return price
-
-
-
-
-

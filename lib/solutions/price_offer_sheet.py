@@ -73,5 +73,3 @@ free_item_offer = {
 }
 
 group_offer = {3: {45: ["S", "T", "X", "Y", "Z"]}}
-
-

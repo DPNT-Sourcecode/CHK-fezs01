@@ -61,6 +61,3 @@ class TestCheckout:
 
     def test_one(self):
         assert checkout_solution.checkout("ZZXXA") == 112
-
-
-
