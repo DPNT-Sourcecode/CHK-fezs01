@@ -20,6 +20,7 @@ def checkout(skus):
 
     apply_free_item_offer(items_cart)
     apply_group_offer(items_cart)
+    print(items_cart)
 
     for name, quantity in items_cart.items():
         if name in multi_buy_offer.keys():
@@ -97,10 +98,8 @@ def apply_group_offer(items_cart):
         for i in sort_by_price:
             if i in items_cart:
                 num_items = items_cart[i]
-                available_items_for_offer.join(i * num_items)
 
-        print(available_items_for_offer)
-
+                available_items_for_offer += i * num_items
         num_offers, num_left_items = divmod(len(available_items_for_offer), count)
 
         if num_offers == 0:
@@ -115,8 +114,8 @@ def apply_group_offer(items_cart):
 
         if num_left_items == 0:
             continue
-
         for name, num in Counter(available_items_for_offer[-num_left_items:]).items():
             items_cart[name] = num
 
     return price
+
