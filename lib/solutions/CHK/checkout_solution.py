@@ -1,3 +1,4 @@
+from collections import Counter
 from ..price_offer_sheet import (
     price_table,
     multi_buy_offer,
@@ -89,22 +90,25 @@ def apply_any_of_certain_num_offer(items_cart):
         sort_by_price = sorted(
             offer.values()[0], keys=lambda x: price_table[x], reverse=True
         )
-        available_item_for_offer = "".join(
+        available_items_for_offer = "".join(
             item_name * items_cart[item_name] for item_name in sort_by_price
         )
-        num_offers, num_left_items = divmod(len(available_item_for_offer), count)
+        num_offers, num_left_items = divmod(len(available_items_for_offer), count)
 
         if num_offers == 0:
             continue
 
         price += offer.keys()[0] * num_left_items
 
-        left_item = num_left_items[-num_left_items:]
+        items_name = set(available_items_for_offer)
 
-        price += num_offer_and_left_items[0] * offer.keys()[0]
-        pass
-        price_with_out_0ffer = num_offer_and_left_items[0] * offer.keys()[0]
+        for i in items_name:
+            items_cart[i] = 0
+
+        if num_left_items == 0:
+            continue
+
+        for name, num in Counter(available_items_for_offer[-num_left_items:]).items():
+            items_cart[name] = num
 
     return price
-
-
