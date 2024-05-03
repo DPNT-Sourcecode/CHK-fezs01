@@ -104,7 +104,7 @@ def apply_group_offer(items_cart):
         if num_offers == 0:
             continue
 
-        price += list(offer.keys())[0] * num_left_items
+        price += list(offer.keys())[0] * num_offers
 
         items_name = set(available_items_for_offer)
 
@@ -117,5 +117,6 @@ def apply_group_offer(items_cart):
             items_cart[name] = num
 
     return price
+
 
 
