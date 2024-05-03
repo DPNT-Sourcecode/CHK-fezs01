@@ -92,19 +92,19 @@ def apply_any_of_certain_num_offer(items_cart):
         available_item_for_offer = "".join(
             item_name * items_cart[item_name] for item_name in sort_by_price
         )
+        num_offers, num_left_items = divmod(len(available_item_for_offer), count)
 
-        num_offer_and_left_items = divmod(len(available_item_for_offer), count)
-        if num_offer_and_left_items[0] ==0:
+        if num_offers == 0:
             continue
-        
-        price += offer.keys()[0] * num_offer_and_left_items[0]
-        
-        left_item = available_item_for_offer[]
-        
-        
+
+        price += offer.keys()[0] * num_left_items
+
+        left_item = num_left_items[-num_left_items:]
+
         price += num_offer_and_left_items[0] * offer.keys()[0]
         pass
         price_with_out_0ffer = num_offer_and_left_items[0] * offer.keys()[0]
 
     return price
+
 
