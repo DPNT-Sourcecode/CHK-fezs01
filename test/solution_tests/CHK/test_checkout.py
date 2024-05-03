@@ -58,3 +58,7 @@ class TestCheckout:
 
     def test_checkout_buy_three_get_one_free_itself_with_8_item(self):
         assert checkout_solution.checkout("UUUUUUUU") == 240
+
+    def test_one(self):
+        assert checkout_solution.checkout("UUUUUUUU") == 240
+
