@@ -88,9 +88,9 @@ def free_self_item(items_cart, name, count, discount_item_name):
 def apply_group_offer(items_cart):
     price = 0
     for count, offer in group_offer.items():
-        print(offer.values()[1])
+        print(list[offer.values()][0])
         sort_by_price = sorted(
-            offer.values()[0], keys=lambda x: price_table[x], reverse=True
+            list[offer.values()][0], keys=lambda x: price_table[x], reverse=True
         )
         available_items_for_offer = "".join(
             item_name * items_cart[item_name] for item_name in sort_by_price
@@ -114,6 +114,7 @@ def apply_group_offer(items_cart):
             items_cart[name] = num
 
     return price
+
 
 
 
