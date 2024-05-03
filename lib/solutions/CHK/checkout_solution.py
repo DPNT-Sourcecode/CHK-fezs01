@@ -3,7 +3,7 @@ from ..price_offer_sheet import (
     price_table,
     multi_buy_offer,
     free_item_offer,
-    any_certain_num_offer,
+    group_offer,
 )
 
 
@@ -83,9 +83,9 @@ def free_self_item(items_cart, name, count, discount_item_name):
     )
 
 
-def apply_any_of_certain_num_offer(items_cart):
+def apply_group_offer(items_cart):
     price = 0
-    for count, offer in any_certain_num_offer:
+    for count, offer in group_offer:
 
         sort_by_price = sorted(
             offer.values()[0], keys=lambda x: price_table[x], reverse=True
@@ -112,3 +112,4 @@ def apply_any_of_certain_num_offer(items_cart):
             items_cart[name] = num
 
     return price
+
