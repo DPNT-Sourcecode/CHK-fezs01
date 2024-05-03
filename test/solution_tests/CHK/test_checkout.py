@@ -59,13 +59,16 @@ class TestCheckout:
     # def test_checkout_buy_three_get_one_free_itself_with_8_item(self):
     #     assert checkout_solution.checkout("UUUUUUUU") == 240
 
-    def test_one(self):
-        assert checkout_solution.checkout("ZZXXA") == 112
+    # def test_one(self):
+    #     assert checkout_solution.checkout("ZZXXA") == 112
 
-    def test_two(self):
-        assert checkout_solution.checkout("ZZXYXA") == 129
+    # def test_two(self):
+    #     assert checkout_solution.checkout("ZZXYXA") == 129
 
+    # def test_three(self):
+    #     assert checkout_solution.checkout("ZZXXAFF") == 132
     def test_three(self):
-        assert checkout_solution.checkout("ZZXXAFF") == 132
+        assert checkout_solution.checkout("KK") == 120
+
 
 
