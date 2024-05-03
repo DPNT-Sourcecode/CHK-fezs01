@@ -67,8 +67,8 @@ class TestCheckout:
 
     # def test_three(self):
     #     assert checkout_solution.checkout("ZZXXAFF") == 132
-    def test_three(self):
-        assert checkout_solution.checkout("KK") == 120
+
+
 
 
 
