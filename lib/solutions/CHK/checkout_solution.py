@@ -10,7 +10,7 @@ from ..price_offer_sheet import (
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    result = 0
+    final_price = 0
     items_cart = {}
 
     for sku in skus:
@@ -19,16 +19,15 @@ def checkout(skus):
         items_cart[sku] = items_cart.get(sku, 0) + 1
 
     apply_free_item_offer(items_cart)
-    apply_group_offer(items_cart)
-    print(items_cart)
+    final_price += apply_group_offer(items_cart)
 
     for name, quantity in items_cart.items():
         if name in multi_buy_offer.keys():
-            result += apply_multi_buy_offer(name, quantity)
+            final_price += apply_multi_buy_offer(name, quantity)
         else:
-            result += price_table[name] * quantity
+            final_price += price_table[name] * quantity
 
-    return result
+    return final_price
 
 
 def apply_multi_buy_offer(item_name, num_item):
@@ -118,4 +117,5 @@ def apply_group_offer(items_cart):
             items_cart[name] = num
 
     return price
+
 
